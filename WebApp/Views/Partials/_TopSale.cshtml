@@ -1,0 +1,51 @@
+﻿@model TopSellingViewModel
+
+@if(Model != null)
+{
+    <section class="top-sale">
+        <div class="container">
+            <div class="title">@Model.Title</div>
+
+            @if (Model.TopItems != null)
+            {
+                <div class="slideshow">
+                    @foreach (var item in Model.TopItems)
+                    {
+                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item" />
+                    }
+                </div>
+            }
+
+            <div class="slideshow-box">
+                <button class="btn-white"><i class="fa-solid fa-less-than"></i></button>
+                <button class="btn-white"><i class="fa-solid fa-greater-than"></i></button>
+            </div>
+
+
+
+
+           @* <div class="posts">
+                <div class="post-card">
+                    <a href="#"><img src="images/placeholders/370x295.svg" alt=""></a>
+                    <h3 class="box-title">Table lamp 1562 LTG model</h3>
+                    <p class="box-info">Best dress for everyone Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, illum!</p>
+                    <p class="post">POST BY: ADMIN<a href="#">Comments 13</a></p>
+                </div>
+                <div class="post-card">
+                    <a href="#"><img src="images/placeholders/370x295.svg" alt=""></a>
+                    <h3 class="box-title">Table lamp 1562 LTG model</h3>
+                    <p class="box-info">Best dress for everyone Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, illum!</p>
+                    <p class="post">POST BY: ADMIN<a href="#">Comments 13</a></p>
+                </div>
+                <div class="post-card">
+                    <a href="#"><img src="images/placeholders/370x295.svg" alt=""></a>
+                    <h3 class="box-title">Table lamp 1562 LTG model</h3>
+                    <p class="box-info">Best dress for everyone Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium, illum!</p>
+                    <p class="post">POST BY: ADMIN<a href="#">Comments 13</a></p>
+                </div>
+            </div>*@
+
+
+        </div>
+    </section>
+}

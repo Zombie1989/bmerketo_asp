@@ -1,0 +1,15 @@
+﻿@model PostCollectionViewModel
+
+@if (Model != null) 
+{
+    <secition class="postSection">
+        <div class="container">
+            <div class="posts">
+            @foreach (var item in Model.PostItems)
+            {
+                <partial name="/Views/Partials/_PostCollectionItem.cshtml" model="item" />
+            }
+        </div>
+        </div>
+    </secition>
+}

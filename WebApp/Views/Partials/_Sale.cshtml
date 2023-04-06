@@ -1,0 +1,40 @@
+﻿@model ItemSaleViewModel
+
+@{
+    var sale = saleService.GetLatest();
+}
+
+@if (sale != null)
+{
+    <section class="sale">
+        <div class="container">
+
+            @if (Model.ItemSale != null)
+            {
+                    @foreach (var item in Model.ItemSale)
+                    {
+                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item"/>
+                    }
+            }
+
+            <div class="card">
+                <div class="card-sale">
+                    <h1>@sale.Title</h1>
+                    <h2>@sale.PriceOff</h2>
+                    <h3>@sale.TextTitle</h3>
+                    <p>@sale.Text</p>
+                    <a asp-controller="products" asp-action="sale">Discover More</a>
+                </div>
+            </div>
+
+            @if (Model.ItemSale != null)
+            {
+                    @foreach (var item in Model.ItemSale)
+                    {
+                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item"/>
+                    }
+            }
+
+        </div>
+    </section>
+}

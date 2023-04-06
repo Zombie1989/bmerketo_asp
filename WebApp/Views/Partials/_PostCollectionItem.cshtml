@@ -1,0 +1,8 @@
+﻿@model PostCollectionItemViewModel
+
+<div class="post-card">
+    <a asp-controller="products" asp-action="details" asp-route-id="@Model.Id"><img src="images/placeholders/370x295.svg" alt=""></a>
+    <h3 class="box-title">@Model.Title</h3>
+    <p class="box-info">@Model.Info</p>
+    <p class="post">POST BY: @Model.PostBy<a href="#">Comments: @Model.Comments</a></p>
+</div>

@@ -1,0 +1,25 @@
+﻿    <section class="login-form">
+        <div class="container">
+            <div class="form-box">
+                <div class="first-text">
+                    <p>Please Login To Your Account</p>
+                    <div></div>
+                </div>
+                <form id="login_form">
+                    <div class="form">
+                    <label for="login_email">Your Email*</label><span><a asp-controller="Account" asp-action="NewAccount"> Dont have an Account yet?</a></span>
+                        <input id="login_email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="form">
+                        <label for="login_email">Password*</label><span><a href="#">Forgot Your Password?</a></span>
+                        <input id="login_email" type="password" autocomplete="current-password" required>
+                    </div>
+                </form>
+                <div class="checkbox">
+                    <input id="logged_in" type="checkbox">
+                    <label for="logged_in">Please keep me logged in</label>
+                </div>
+                <button class="btn-theme">Submit</button>
+            </div>
+        </div>
+    </section>

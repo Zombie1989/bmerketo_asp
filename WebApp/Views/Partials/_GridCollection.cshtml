@@ -1,0 +1,42 @@
+﻿@model GridCollectionViewModel
+
+@if(Model != null)
+{
+    <section class="grid-collection">
+        <div class="container">
+            <h2 class="title">@Model.Title</h2>
+
+            @if (Model.Categories != null)
+            {
+                <nav class="menu">
+                    <ol class="breadcrumb">
+                        @foreach (var category in Model.Categories)
+                        {
+                            <li class="breadcrumb-item"><a href="#">@category</a></li>
+                        }
+                    </ol>
+                </nav>
+            }
+
+
+
+            @if (Model.GridItems != null)
+            {
+                <div class="grid">
+                    @foreach (var item in Model.GridItems)
+                    {
+                        <partial name="/Views/Partials/_GridCollectionItem.cshtml" model="item"/>
+                    }
+                </div>
+            }
+
+            @if (Model.LoadMore)
+            {
+                <div class="btn-center">
+                    <button class="btn-white">Load More<i class="fa-solid fa-rotate-right"></i></button>
+                </div>
+            }
+
+        </div>
+    </section>
+}
