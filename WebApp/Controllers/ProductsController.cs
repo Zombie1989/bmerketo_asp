@@ -1,10 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
+using WebApp.Services.Products;
 using WebApp.ViewModels.Products;
 
 namespace WebApp.Controllers;
 
 public class ProductsController : Controller
 {
+    private readonly ProductService _productService;
+
+    public ProductsController(ProductService productService)
+    {
+        _productService = productService;
+    }
+
     public IActionResult Index()
     {
         ViewData["Title"] = "Products";
@@ -38,7 +47,10 @@ public class ProductsController : Controller
     {
         if (ModelState.IsValid)
         {
-            
+            if (await _productService.CreateAsync(newProductViewModel))
+                return RedirectToAction("Index", "Products");
+
+            ModelState.AddModelError("", "Something went wrong");
         }
 
         return View();

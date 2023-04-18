@@ -1,39 +1,45 @@
 ﻿@model NewProductViewModel
 
 <section>
-    <div class="d-flex justify-content-center">
-        <div col-6> 
-            <form method="post" novalidate>
+    <div class="container"> 
+        <form method="post" novalidate class="mx-3">
                 
-                <div mb-3>
-                    <label asp-for="Name" class="form-label "></label>
-                    <input asp-for="Name" class="form-control"/>
-                    <small><span asp-validation-for="Name" class="text-danger"></span></small>
-                </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <div mb-3>
-                    <label asp-for="Price" class="form-label"></label>
-                    <input asp-for="Price" class="form-control"/>
-                    <small><span asp-validation-for="Price" class="text-danger"></span></small>
-                </div>
+            <div mb-3>
+                <label asp-for="Name" class="form-label "></label>
+                <input asp-for="Name" class="form-control"/>
+                <small><span asp-validation-for="Name" class="text-danger"></span></small>
+            </div>
 
-                <div mb-3>
-                    <label asp-for="ImageUrl" class="form-label"></label>
-                    <input asp-for="ImageUrl" class="form-control"/>
-                    <small><span asp-validation-for="ImageUrl" class="text-danger"></span></small>
-                </div>
+            <div mb-3>
+                <label asp-for="Price" class="form-label"></label>
+                <input asp-for="Price" class="form-control"/>
+                <small><span asp-validation-for="Price" class="text-danger"></span></small>
+            </div>
 
-                <div mb-3>
-                    <label asp-for="Description" class="form-label"></label>
-                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
-                    <small><span asp-validation-for="Description" class="text-danger"></span></small>
-                </div>
+            <div mb-3>
+                <label asp-for="Category" class="form-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <small><span asp-validation-for="Price" class="text-danger"></span></small>
+            </div>
 
-                <div class="grid mt-2">
-                    <button class="btn-theme" type="submit">Add Product</button>
-                </div>
+            <div mb-3>
+                <label asp-for="ImageUrl" class="form-label"></label>
+                <input asp-for="ImageUrl" class="form-control"/>
+                <small><span asp-validation-for="ImageUrl" class="text-danger"></span></small>
+            </div>
 
-            </form>
-        </div>
+            <div mb-3>
+                <label asp-for="Description" class="form-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <small><span asp-validation-for="Description" class="text-danger"></span></small>
+            </div>
+
+            <div class="grid mt-2">
+                <button class="btn-theme" type="submit">Add Product</button>
+            </div>
+
+        </form>
     </div>
 </section>

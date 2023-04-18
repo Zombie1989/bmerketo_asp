@@ -1,7 +1,12 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using WebApp.ViewModels.Home
 @using WebApp.Services.Home
-@using WebApp.ViewModels.Products;
+@using WebApp.Services.Products
+@using WebApp.ViewModels.Products
+@using WebApp.ViewModels.Account
 
+
+
+@inject ProductService productService
 @inject ShowcaseService showcaseService
 @inject SaleService saleService
