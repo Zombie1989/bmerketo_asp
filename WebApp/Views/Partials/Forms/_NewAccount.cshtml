@@ -7,9 +7,9 @@
                 <p>Please Register Your New Account</p>
             </div>
 
-            <form method="post" id="register_new_form" novalidate>
+            <form method="post" id="register_new_form" enctype="multipart/form-data" novalidate>
 
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                 <div class="form">
                     <label asp-for="FirstName">First Name*</label>
@@ -60,8 +60,8 @@
                     <small class="text-danger"><span asp-validation-for="ConfirmPassword"></span></small>
                 </div>
                 <div class="form two-fr">
-                    <label asp-for="ProfileImage">Upload Profile Image (optional)</label>
-                    <input asp-for="ProfileImage" type="text">
+                    <label asp-for="ImageFile">Upload Profile Image (optional)</label>
+                    <input asp-for="ImageFile" type="text">
                 </div>
 
 

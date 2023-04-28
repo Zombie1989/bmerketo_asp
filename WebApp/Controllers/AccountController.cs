@@ -22,11 +22,29 @@ public class AccountController : Controller
         return View();
     }
 
-    public IActionResult Login()
+    public IActionResult Login(string ReturnUrl = null!)
     {
         ViewData["Title"] = "Login";
 
-        return View();
+        var model = new LoginViewModel();
+        if (ReturnUrl != null)
+            model.ReturnUrl = ReturnUrl;
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            if (await _authentication.LoginAsync(model))
+                return LocalRedirect(model.ReturnUrl);
+
+
+            ModelState.AddModelError("", "Incorrect e-mail or password");
+        }
+        return View(model);
     }
 
     public IActionResult NewAccount()
@@ -41,6 +59,9 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
+            if (await _authentication.UserAlreadyExistsAsync(x => x.Email == model.Email))
+                ModelState.AddModelError("", "An Account with the same email already exists");
+
             if (await _authentication.SignUpAsync(model))
                 return RedirectToAction("Login");
 

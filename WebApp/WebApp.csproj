@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Services\Contacts\" />
     <Folder Include="ViewModels\Contacts\" />
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <ItemGroup>
