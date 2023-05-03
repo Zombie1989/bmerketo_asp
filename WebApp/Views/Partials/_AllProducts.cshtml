@@ -1,0 +1,32 @@
+﻿@model GridCollectionViewModel
+@{
+    var products = await productService.GetAllAsync();
+}
+
+
+@if (products != null)
+{
+    <section class="grid-collection">
+        <div class="container">
+
+            @if (products != null)
+            {
+                <div class="grid">
+                    @foreach (var item in products)
+                    {
+                        <a asp-controller="Products" asp-action="Product" asp-route-id="@item.Id" class="product">
+                            <div>@item.Name</div>
+                            <div>@item.Category </div>
+                            <div>$@item.Price</div>
+                            <div>@item.Id</div>
+                            <div>@item.ImageUrl</div>
+                        </a>
+                    }
+                </div>
+            }
+
+        </div>
+    </section>
+} else {
+    <div>404</div>
+}

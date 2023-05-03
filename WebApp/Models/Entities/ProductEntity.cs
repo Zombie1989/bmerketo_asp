@@ -11,7 +11,7 @@ public class ProductEntity
     public string? Description { get; set; }
     public string? Category { get; set; }
 
-    [Column(TypeName = "money")]
+    [Column(TypeName = "Money")]
     public decimal Price { get; set; } 
     public string? ImageUrl { get; set; }
 

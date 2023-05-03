@@ -12,4 +12,6 @@ public class AdminController : Controller
 
         return View();
     }
+
+
 }

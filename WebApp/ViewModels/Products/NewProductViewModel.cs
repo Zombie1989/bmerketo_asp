@@ -20,7 +20,7 @@ public class NewProductViewModel
     [DataType(DataType.Currency)]
     public decimal Price { get; set; }
 
-    [Display(Name = "Add product image url")]
+    [Display(Name = "Add product image file")]
     public string? ImageUrl { get; set; }
 
 

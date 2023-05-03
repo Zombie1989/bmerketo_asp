@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
+using WebApp.Contexts;
 using WebApp.Services.Products;
 using WebApp.ViewModels.Products;
 
@@ -8,10 +10,12 @@ namespace WebApp.Controllers;
 public class ProductsController : Controller
 {
     private readonly ProductService _productService;
+    private readonly DataContext _context;
 
-    public ProductsController(ProductService productService)
+    public ProductsController(ProductService productService, DataContext context)
     {
         _productService = productService;
+        _context = context;
     }
 
     public IActionResult Index()
@@ -28,9 +32,22 @@ public class ProductsController : Controller
         return View();
     }
 
-    public IActionResult Product()
+    public async Task<IActionResult> Product(int Id)
     {
         ViewData["Title"] = "Product";
+
+        var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == Id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        return View(product);
+    }
+
+    public IActionResult AllProducts()
+    {
+        ViewData["Title"] = "Products";
 
         return View();
     }

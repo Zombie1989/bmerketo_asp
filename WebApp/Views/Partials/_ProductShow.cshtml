@@ -1,4 +1,7 @@
-﻿<section class="product-show">
+﻿@using WebApp.Models.Entities;
+@model ProductEntity
+
+<section class="product-show">
     <div class="container">
         <div class="product-images">
             <div>
@@ -10,8 +13,8 @@
             <a href="#"><img src="images/placeholders/120x113.svg" alt="no image found"></a>
         </div>
         <div class="product-info">
-            <h2>Young Star Smart Shoe in Fashion</h2>
-            <p>Lirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            <h2>@Model.Name</h2>
+            <p>@Model.Description</p>
             <div class="line"></div>
             <div class="star">
                 <i class="fa-solid fa-star"></i>
@@ -21,7 +24,7 @@
                 <i class="fa-solid fa-star"></i>
                 <a class="reviews" href="#">16 Reviews</a>
             </div>
-            <div class="price">$30</div>
+            <div class="price">$@Model.Price</div>
             <div class="add-cart">
                 <button class="btn-white small">-</button>
                 <button class="btn-white small" disabled>2</button>
@@ -38,7 +41,7 @@
                 <button class="btn-white">Add to wishlist</button>
             </div>
             <div class="category">
-                <p>Category: <span>Table Lamp, Light</span></p>
+                <p>Category: <span>@Model.Category</span></p>
             </div>
         </div>
     </div>
