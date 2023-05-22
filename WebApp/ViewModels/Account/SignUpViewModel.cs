@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using WebApp.Models.Entities;
 using WebApp.Models.Identity;
 
@@ -9,10 +8,12 @@ public class SignUpViewModel
 {
     [Display(Name = "First Name")]
     [Required(ErrorMessage = "You must provide a first name")]
+    [StringLength(50, MinimumLength = 2)]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Last Name")]
     [Required(ErrorMessage = "You must provide a last name")]
+    [StringLength(50, MinimumLength = 3)]
     public string LastName { get; set; } = null!;
 
     [Display(Name = "E-mail")]
@@ -37,6 +38,7 @@ public class SignUpViewModel
     public string? Company { get; set; }
 
     [Display(Name = "Phone Number")]
+    [StringLength(20, MinimumLength = 6)]
     public string? PhoneNumber { get; set; }
 
     [Display(Name = "Street Name")]

@@ -1,0 +1,36 @@
+﻿@{
+    var products = await productService.GetAllAsync();
+}
+
+<section class="all-products-admin">
+
+    <div class="new-product">
+        <a asp-controller="Admin" asp-action="AddProduct">Add new Product</a>
+    </div>
+
+    <div class="container">
+        <div class="names">
+            <p>Article-number</p>
+            <p>Name</p>
+            <p>Category & tags</p>
+            <p>Price</p>
+            <p>Image</p>
+        </div>
+        @if (products != null)
+            foreach (var product in products)
+            {
+                <div class="product">
+                    <div>@product.Id</div>
+                    <div>@product.Name</div>
+                    <div>@product.Category
+                        @foreach (var tag in product.Tags)
+                        {
+                            <div class="tags">@tag.TagName</div>
+                        }
+                    </div>
+                    <div>$@product.Price.ToString("0.##")</div>
+                    <div><img src="/images/products/@product.ImageUrl" alt="" /></div>
+                </div>
+            }
+    </div>
+</section>

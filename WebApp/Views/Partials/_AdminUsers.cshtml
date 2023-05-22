@@ -1,0 +1,41 @@
+﻿@{
+    var users = await userService.GetUserAsync();
+
+}
+
+
+<section class="show-users">
+    <div class="user-banner">
+        <h1>USERS</h1>
+        <a asp-controller="Admin" asp-action="index">Back to Admin</a>
+    </div>
+    <div class="container">
+
+        @if (users != null)
+        {
+            <div class="grid">
+                @foreach (var user in users)
+                {
+                    <div class="user-box">
+                        <a asp-controller="Admin" asp-action="Users" asp-route-id="@user.Id" class="user">
+
+                        <div>@user.FirstName<span> @user.LastName</span></div>
+                        <div>@user.Email</div>
+                        <div>@user.CompanyName</div>
+                        <div>@user.PhoneNumber</div>
+                        <div>@user.City<span>@user.PostalCode</span></div>
+                        <div>@user.StreetName</div>
+
+                            @foreach (var role in user.Roles)
+                            {
+                                <div>@role</div>
+                            }
+                      
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+
+    </div>
+</section>

@@ -32,11 +32,11 @@ public class ProductsController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Product(int Id)
+    public async Task<IActionResult> Product(string Id)
     {
         ViewData["Title"] = "Product";
 
-        var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == Id);
+        var product = await _context.Products.FirstOrDefaultAsync(x => x.ArticleNumber == Id);
         if (product == null)
         {
             return NotFound();
@@ -45,31 +45,13 @@ public class ProductsController : Controller
         return View(product);
     }
 
-    public IActionResult AllProducts()
+    public IActionResult AllProducts(string tag)
     {
         ViewData["Title"] = "Products";
 
-        return View();
-    }
-
-    public IActionResult AddProduct()
-    {
-        ViewData["Title"] = "Add product";
 
         return View();
     }
 
-    [HttpPost]
-    public async Task<IActionResult> AddProduct(NewProductViewModel newProductViewModel)
-    {
-        if (ModelState.IsValid)
-        {
-            if (await _productService.CreateAsync(newProductViewModel))
-                return RedirectToAction("Index", "Products");
 
-            ModelState.AddModelError("", "Something went wrong");
-        }
-
-        return View();
-    }
 }

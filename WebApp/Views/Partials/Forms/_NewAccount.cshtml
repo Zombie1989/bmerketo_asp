@@ -39,6 +39,7 @@
                 <div class="form">
                     <label asp-for="PhoneNumber">Mobile (optional)</label>
                     <input asp-for="PhoneNumber" type="tel">
+                    <small class="text-danger"><span asp-validation-for="PhoneNumber"></span></small>
                 </div>
                 <div class="form">
                     <label asp-for="Company">Company (optional)</label>

@@ -9,4 +9,5 @@
         footer.style.bottom = "0";
         body.style.paddingBottom = footerHeight + "px";
     }
+
 });

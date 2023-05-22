@@ -6,14 +6,9 @@
             <nav class="menu-links">
                 <a class="link" asp-controller="Home" asp-action="Index">HOME</a>
 
-                @if (signInManager.IsSignedIn(User) && User.IsInRole("admin"))
-                {
+
                     <a class="link" asp-controller="Products" asp-action="Index">PRODUCTS</a>
-                }
-                else
-                {
-                    <a class="link" asp-controller="Products" asp-action="AllProducts">PRODUCTS</a>
-                }
+                
 
                 <a class="link" asp-controller="Contacts" asp-action="Index">CONTACT</a>
             </nav>
@@ -23,13 +18,13 @@
 
                 @if (signInManager.IsSignedIn(User) && User.IsInRole("admin"))
                 {
-                    <a class="link" asp-action="index" asp-controller="Admin">Admin</a>
+                    <a class="link" asp-controller="Admin" asp-action="index">Admin</a>
                 }
 
                 @if(signInManager.IsSignedIn(User))
                 {
-                    <a class="link" asp-action="index" asp-controller="myAccount">@User.Identity?.Name</a>
-                    <a class="link" asp-action="index" asp-controller="logout">LOGOUT</a>
+                    <a class="link" asp-controller="myAccount" asp-action="index">@User.Identity?.Name</a>
+                    <a class="link" asp-controller="logout" asp-action="index">LOGOUT</a>
                 }
                 else
                 {

@@ -4,6 +4,8 @@ using WebApp.Contexts;
 using WebApp.Models.Identity;
 using WebApp.Repositories;
 using WebApp.Services.Account;
+using WebApp.Services.Admin;
+using WebApp.Services.Contacts;
 using WebApp.Services.Home;
 using WebApp.Services.Products;
 
@@ -17,10 +19,16 @@ builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<SeedService>();
-
+builder.Services.AddScoped<ContactService>();
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<TagService>();
 
 builder.Services.AddScoped<AddressRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
+builder.Services.AddScoped<TagRepo>();
+builder.Services.AddScoped<ProductRepository>();
+builder.Services.AddScoped<ProductTagRepository>();
+
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(x =>
 {

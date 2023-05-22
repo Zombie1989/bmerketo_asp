@@ -2,10 +2,15 @@
 
 <section>
     <div class="container"> 
-        <form method="post" novalidate class="mx-3">
+        <form enctype="multipart/form-data" method="post" asp-action="AddProduct" novalidate class="mx-3">
                 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+            <div mb-3>
+                <label asp-for="ArticleNumber" class="form-label "></label>
+                <input asp-for="ArticleNumber" class="form-control" />
+                <small><span asp-validation-for="ArticleNumber" class="text-danger"></span></small>
+            </div>
             <div mb-3>
                 <label asp-for="Name" class="form-label "></label>
                 <input asp-for="Name" class="form-control"/>
@@ -25,15 +30,25 @@
             </div>
 
             <div mb-3>
-                <label asp-for="ImageUrl" class="form-label"></label>
-                <input asp-for="ImageUrl" class="form-control"/>
-                <small><span asp-validation-for="ImageUrl" class="text-danger"></span></small>
+                <label asp-for="Image" class="form-label"></label>
+                <input asp-for="Image" type="file" class="form-control"/>
+                <small><span asp-validation-for="Image" class="text-danger"></span></small>
             </div>
 
             <div mb-3>
                 <label asp-for="Description" class="form-label"></label>
                 <textarea asp-for="Description" class="form-control" rows="3"></textarea>
                 <small><span asp-validation-for="Description" class="text-danger"></span></small>
+            </div>
+
+            <div mb-3>
+                @foreach(SelectListItem tag in ViewBag.Tags)
+                {
+                    <div>
+                        <label for="@tag.Text-@tag.Value" class="form-check-label">@tag.Text</label>
+                        <input type="checkbox" name="Tags" id="@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" class="form-check-label" />
+                    </div>
+                }
             </div>
 
             <div class="grid mt-2">

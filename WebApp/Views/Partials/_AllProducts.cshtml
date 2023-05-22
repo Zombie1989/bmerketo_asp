@@ -9,17 +9,28 @@
     <section class="grid-collection">
         <div class="container">
 
+            <div class="filter-buttons">
+                <a href="?tag=" class="btn">Show All</a>
+                <a href="?tag=new" class="btn">New</a>
+                <a href="?tag=featured" class="btn ">Featured</a>
+                <a href="?tag=popular" class="btn ">Popular</a>
+            </div>
+
             @if (products != null)
             {
                 <div class="grid">
                     @foreach (var item in products)
                     {
                         <a asp-controller="Products" asp-action="Product" asp-route-id="@item.Id" class="product">
-                            <div>@item.Name</div>
-                            <div>@item.Category </div>
-                            <div>$@item.Price</div>
                             <div>@item.Id</div>
-                            <div>@item.ImageUrl</div>
+                            <div>@item.Name</div>
+                            <div>$@item.Price.ToString("0.##")</div>
+                            <div><img src ="/images/products/@item.ImageUrl" alt="" /></div>
+                            <div>@item.Category</div>
+                            @foreach (var tag in item.Tags)
+                            {
+                                <span>@tag.TagName</span>
+                            }
                         </a>
                     }
                 </div>

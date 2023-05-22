@@ -1,0 +1,26 @@
+﻿<section class="admin">
+    <div class="admin-banner">
+        <h1>ADMIN</h1>
+    </div>
+    <div class="container">
+        <div class="admin-section">
+            <div class="admin-actions">
+                <div class="product-related">
+                    <h2>Product related</h2>
+                    <div>
+                        <a asp-controller="Admin" asp-action="Products">Products</a>
+                    </div>
+                    <div>
+                        <a asp-controller="Admin" asp-action="AddTags">Add new tag for products</a>
+                    </div>
+                </div>
+                <div class="user-related">
+                    <h2>User related</h2>
+                    <div>
+                        <a asp-controller="Admin" asp-action="Users">Users</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,11 +1,10 @@
-﻿@using WebApp.Models.Entities;
-@model ProductEntity
+﻿@model ProductEntity
 
 <section class="product-show">
     <div class="container">
         <div class="product-images">
             <div>
-                <a href="#"><img src="images/placeholders/501x430.svg" alt=""></a>
+                <img src="/images/products/@Model.ImageUrl" alt="@Model.Name" class="firstImage">
             </div>
             <a href="#"><img src="images/placeholders/120x113.svg" alt="no image found"></a>
             <a href="#"><img src="images/placeholders/120x113.svg" alt="no image found"></a>
@@ -24,7 +23,7 @@
                 <i class="fa-solid fa-star"></i>
                 <a class="reviews" href="#">16 Reviews</a>
             </div>
-            <div class="price">$@Model.Price</div>
+            <div class="price">$@Model.Price.ToString("0.##")</div>
             <div class="add-cart">
                 <button class="btn-white small">-</button>
                 <button class="btn-white small" disabled>2</button>

@@ -8,4 +8,5 @@ public class UserRepo : Repository<AppUser>
     public UserRepo(IdentityContext context) : base(context)
     {
     }
+
 }

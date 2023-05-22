@@ -1,0 +1,28 @@
+﻿@model AddTagsViewModel
+
+
+<section>
+    <div class="container">
+        <div>
+            <a asp-controller="Admin" asp-action="Index">Back to Admin layout</a>
+            <a asp-controller="Admin" asp-action="Products">Continue to Products</a>
+        </div>
+
+        <form method="post" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div>
+                <label asp-for="Title" class="form-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <small><span asp-validation-for="Title" class="text-danger"></span></small>
+            </div>
+
+            <div class="grid mt-2">
+                <button class="btn-theme" type="submit">Add Tag</button>
+            </div>
+
+        </form>
+
+    </div>
+</section>

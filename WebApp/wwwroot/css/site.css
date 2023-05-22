@@ -912,9 +912,14 @@ footer {
         grid-template-columns: 1fr 1fr
     }
 
-    .product-show .product-images div {
-        margin-bottom: 5px
-    }
+        .product-show .product-images div {
+            margin-bottom: 5px
+        }
+        
+        .product-show .product-images .firstImage {
+            width: 500px;
+            height: 500px;
+        }
 
     .product-show .product-images img {
         margin: 2px
@@ -1156,17 +1161,158 @@ footer {
         }
 
     .all-products-admin .product {
+        height: auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        padding: 10px;
+        margin-bottom: 5px;
         text-align: center;
+        background: #f3f2f2;
+        align-items: center;
+        border: 1px solid #b0b0b0;
     }
 
         .all-products-admin .product div {
+            padding: 5px;
+        }
+
+            .all-products-admin .product .tags {
+                color: #fa3150;
+            }
+
+        .all-products-admin .product img {
+            width: 100px;
             border: 1px solid #b0b0b0;
             padding: 5px;
         }
 
 
+.admin {
+    color: black;
+}
 
-.all-products 
+    .admin .admin-banner {
+        background-color: #f3f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .admin .admin-banner h1 {
+        margin: 30px;
+        font-size: 72px;
+    }
+
+    .admin .admin-section {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+
+        .admin .admin-section .admin-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .admin .admin-section .admin-actions .product-related {
+                padding: 10px;
+                box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+                margin: 30px;
+                background-color: #F3F2F2;
+                border-radius: 15px;
+            }
+
+            .admin .admin-section .admin-actions .user-related {
+                padding: 10px;
+                box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+                margin: 30px;
+                background-color: #F3F2F2;
+                border-radius: 15px;
+            }
+
+                .admin .admin-section .admin-actions div a {
+                    color: #292929;
+                    text-decoration: none;
+                }
+
+                    .admin .admin-section .admin-actions div a:hover{
+                        color: #aeaeae
+                    }
+        
+
+
+.show-users .user-banner {
+    background-color: #f3f2f2;
+    font-size: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    margin: 20px 0;
+}
+
+    .show-users .user-banner h1 {
+        background-color: #f3f2f2;
+        font-size: 72px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        margin: 20px 0;
+    }
+    .show-users .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 30px;
+    }
+
+
+
+        .show-users .grid .user-box {
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            background-color: #f3f2f2;
+            padding: 10px;
+        }
+
+            .show-users .grid .user-box a {
+                color: #292929;
+                text-decoration: none;
+            }
+                .show-users .grid .user-box a:hover {
+                    color: #aeaeae
+                }
+
+
+.grid-collection {
+
+}
+    .grid-collection .grid {
+        display: grid;
+        grid-column: auto;
+        text-align: center;
+
+    }
+        .grid-collection .grid .product {
+            box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 15px;
+            background: #f3f2f2;
+            height: 300px;
+            width: 300px;
+            margin: 20px;
+            align-items: center;
+        }
+            .grid-collection .grid .product:hover {
+                text-decoration: none;
+            }
+            .grid-collection .grid .product div {
+                color: #000;
+            }
+            .grid-collection .grid .product span {
+                color: #fa3150;
+            }
+            .grid-collection .grid .product img {
+                width: 150px;
+                height: 150px;
+            }

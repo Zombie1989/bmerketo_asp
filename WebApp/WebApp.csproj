@@ -7,9 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Contacts\" />
-    <Folder Include="ViewModels\Contacts\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\images\products\" />
   </ItemGroup>
 
   <ItemGroup>
